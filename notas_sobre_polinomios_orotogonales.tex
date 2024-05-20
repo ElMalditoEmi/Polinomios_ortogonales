@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{imakeidx}
+\usepackage{blindtext}
+\makeindex
+\title{Notas sobre polinomios ortogonales}
+\author{Emilio Pereyra}
+\begin{document}
+	\begin{titlepage}
+	\maketitle
+	Algunas notas sobre mi aprendizaje de los polinomios ortogonales que necesitaba 
+	para leer cierto paper.
+	\end{titlepage}
+
+	\section{Integral Stieltjes-Lebesgue}
+	\subsection{Antes: Integral de Riemann-Stieltjes}
+	\begin{flushleft}
+		La integral de Riemann-Stieltjes es una generalización del concepto
+		integral que propuso Riemann.
+		Esta integral de R-S toma 2 funciones, llamadas el \textbf{integrando}
+		y el \textbf{integrador}.\\
+		Veamos un ejemplo donde $f$ es el integrando y la funcion $\alpha$ 
+		es el integrador.
+		\begin{equation}
+			\begin{aligned}
+				\int_{a}^{b}f d \alpha
+			\end{aligned}
+		\end{equation}
+		Sea $P=\{x_0,x_1,x_2...,x_n\}$ una partición de $[a,b]$ con 
+		$a=x_0<x_1<x_2<...<x_n=b$ .Llamaremos suma Riemman-Stieltjes a:
+		\begin{equation}
+			\begin{aligned}
+				\sum_{k=1}^{n}f(t_k)( \alpha(x_{k}) -  \alpha(x_{k-1})).
+			\end{aligned}
+		\end{equation}
+		$f$ es Riemman-Stieltjes integrable respecto a $\alpha$ ,  en $[a,b]$ si existe 
+		un número $A$, tal que para todo $ \varepsilon \in \mathbb{R}_{>0}$, existe $ 
+		 P_{\varepsilon}$ una partición con que para toda particion $P$ más fina que 
+		 $P_{\varepsilon}$ y cualquier eleccion de los $t_{k}$ tenemos:
+		 \begin{equation}
+		 	\begin{aligned}
+		 		|S(P,f,\alpha)-A| < \varepsilon
+		 	\end{aligned}
+		 \end{equation}
+		 Además notemos que si $ \alpha $  es la función identidad, esto es en realidad una
+		 integral de Riemann convencional:
+		 \begin{equation}
+		 	\begin{aligned}
+				\int_{a}^{b}fdx &= \int_{a}^{b}fd \alpha(x)
+			\end{aligned}
+		 \end{equation}
+	\end{flushleft}	
+\end{document}
