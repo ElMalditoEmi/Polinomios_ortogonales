@@ -1,8 +1,28 @@
 \documentclass{article}
+
+%--- MATH SYMBOLS -------
 \usepackage{amsmath}
 \usepackage{amssymb}
+%-----------------------
 \usepackage{imakeidx}
 \usepackage{blindtext}
+
+%--- Cajitas facheras ---
+\usepackage{tikz}
+\usetikzlibrary{backgrounds}
+\usepackage[skins]{tcolorbox}
+\tikzstyle{background rectangle}=[thin,draw=black]
+\newtcolorbox{myframe}[2][]{%
+  enhanced,colback=white,colframe=black,coltitle=black,
+  sharp corners,boxrule=0.4pt,
+  fonttitle=\itshape,
+  attach boxed title to top left={yshift=-0.3\baselineskip-0.4pt,xshift=2mm},
+  boxed title style={tile,size=minimal,left=0.5mm,right=0.5mm,
+    colback=white,before upper=\strut},
+  title=#2,#1
+}
+%------------------------
+
 \makeindex
 \title{Notas sobre polinomios ortogonales}
 \author{Emilio Pereyra}
@@ -50,5 +70,87 @@
 				\int_{a}^{b}fdx &= \int_{a}^{b}fd \alpha(x)
 			\end{aligned}
 		 \end{equation}
-	\end{flushleft}	
+	\end{flushleft}
+	\begin{myframe}{Propiedades}
+		1) Es lineal con respecto al integrando
+		\begin{equation}
+			\begin{aligned}
+				 \int_{a}^{b}(c_1f(x)+c_2g(x))d \alpha(x) &= c_1\int_{a}^{b}f(x)d \alpha(x) + c_1\int_{a}^{b}g(x)d \alpha(x)
+			\end{aligned}
+		\end{equation}
+		Y con respecto al integrador:
+		\begin{equation}
+			\begin{aligned}
+				\int_{a}^{b}f(x)d(c_1 \alpha(x) + c_2\beta(x)) = c_1 \int_{a}^{b}f(x)d \alpha(x) + \int_{a}^{b}f(x) d \beta(x)
+			\end{aligned}
+		\end{equation}
+
+		2) Se puede partir el intervalo de integración. Sea $c \in [a,b]$.
+		\begin{equation}
+			\begin{aligned}
+			 \int_{a}^{b}f(x)d \alpha(x)= \int_{a}^{c}f(x)d \alpha(x) + \int_{c}^{b}f(x)d \alpha(x).
+			\end{aligned}
+		\end{equation}
+		3) Hay integracion por partes.
+		\begin{equation}
+			\begin{aligned}
+				\int_{a}^{b}fd \alpha(x) + \int_{a}^{b} \alpha(x)df(x) = f(b) \alpha(x)- f(a) \alpha(a).
+			\end{aligned}
+		\end{equation}
+	\end{myframe}
+	
+	\subsubsection{Ejemplos y aplicaciones}
+	\underline {Ejemplo 1}:Si $ \alpha(x)$ es una función escalonada, en este caso usaremos:
+	\[
+	\alpha(x) =
+	\begin{cases}
+		a \text{ si } x < x_0\\
+		c \text{ si } x = x_0\\
+		b \text{ si } x > x_0
+	\end{cases}
+	\] 	
+	Entonces los sumandos de de $S(P,f,\alpha)$ son 0, excepto en el sub intervalo $[u,v]$ de 
+	$P$, que tiene  $x_0$ como \textbf{punto interior}. Al obtener el limite de la suma,
+	tenemos:
+	\begin{equation}
+		\begin{aligned}
+			(b-a)f(x_0)
+		\end{aligned}
+	\end{equation}
+	\underline {Ejemplo 2}:
+	Otro ejempmlo es la función parte entera $y=[x]$, que nos ayuda a definir la sumatoria
+	a partir de una integral:
+	\begin{equation}
+		\begin{aligned}
+			\sum_{k=1}^{n}f(k) = \int_{0}^{n}d[x], n \in \mathbb{N}
+		\end{aligned}
+	\end{equation}
+	\center{Notar: \fbox{$[t_k] - [t_{k-1}] = 0$ si son un tramo con la misma parte entera}}
+	\\
+	\underline {Ejemplo 2}:
+	Como ultimo ejemplo vamos a hablar de como funciona la integral R-S sobre curvas:\\
+	Una curva $f(x,y,z)$, respecto a la longitud de arco de una curva:
+	\begin{equation}
+		\begin{aligned}
+			\vec{r}^{\ } = x(t)\vec{i}^{\ } + y(t) \vec{j}^{\ } +
+			z(t) \vec{k}^{\ }\text{ } \text{con } t_0 < t < t_f.
+		\end{aligned}
+	\end{equation}
+	Esto puede ser visto como una integral de Riemann-Stieltjes en que el integrando es:
+	\begin{equation}
+		\begin{aligned}
+			F(t) = f(x(t),y(t),z(t))
+		\end{aligned}
+	\end{equation}
+	Y el integrador es la funcion  $S(t)$ que indica la longitud de arco de curva.
+	 \begin{equation}
+		\begin{aligned}
+			\int_{\Gamma}^{}f(f,y,z) ds &= \int_{t_0}^{t_f}f(x(t),y(t),z(t))ds(t)\\
+						    &= \int_{t_0}^{t_f}F(t)s'(t)dt
+		\end{aligned}
+	\end{equation}
+
+	\subsection{Teoria de medida (para comprender la integral de Lebesgue)}
+	Una medida de un conjunto es la forma rigurosa de asignar un numero a cada
+	subconjunto apropiado de un conjunto.
 \end{document}
