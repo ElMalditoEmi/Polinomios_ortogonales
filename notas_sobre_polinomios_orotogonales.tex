@@ -7,6 +7,11 @@
 \usepackage{imakeidx}
 \usepackage{blindtext}
 
+
+%--- Definition --------
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{prop}{Proposition}[section]
 %--- Cajitas facheras ---
 \usepackage{tikz}
 \usetikzlibrary{backgrounds}
@@ -29,10 +34,63 @@
 \begin{document}
 	\begin{titlepage}
 	\maketitle
-	Algunas notas sobre mi aprendizaje de los polinomios ortogonales que necesitaba 
-	para leer cierto paper.
-	\end{titlepage}
+	This documents reflects the path I took in order to comprehend the orthogonal
+	polynomials. So far, we start reviewing some of the basics of real functions
+	analysis, towards the concepts of measure theory that Lebesgue integration requieres.
+	Immediatly after, Lebesgues integral.
 
+	\end{titlepage}
+	\section{Real Numbers}
+	\begin{definition}
+		Infimum and supremum:\\
+		Let $A \subset \mathbb{R}$, the minimum upper bound of $A$ is called supremum.
+		Symetrically, the maximum lower bound of $A$ is called infimum.\\
+	
+		We say that the real number $s$ is the supremum of $A$ if and only if:\\
+		\begin{flushleft}
+		1) Every $x \in A$ verifies that  $x \leq s$.\\
+		2) For every number $\varepsilon >  0$, exists at least an $x \in A$
+		such that $x>s-\varepsilon$.\\
+		\end{flushleft}
+
+		These two properties are symetrically defined for infimum.
+	\end{definition}
+
+	\begin{definition}
+		Intervals:\\
+		Given two real numbers $a$ and $b$ such that  $ a \leq b$. There are four
+		intervals with left end $a$, and right end $b$:
+		\begin{center}
+			$[a,b] = \{x \in \mathbb{R} : a \leq x \leq b \}$\\
+		$(a,b] = \{x \in \mathbb{R} : a < x \leq b \}$\\
+		$[a,b) = \{x \in \mathbb{R} : a \leq x < b \}$\\
+		$(a,b) = \{x \in \mathbb{R} : a < x < b \}$\\
+		\end{center}
+	\end{definition}
+
+	\begin{prop}
+		The intersection between two intervals it's an interval. The difference of
+		two intervals is the union of two disjointed intervals.
+	\end{prop}
+
+	\begin{definition}
+		The measure or longitude of any interval with ends $a$ and $b$, is the
+		number $b-a$.
+	\end{definition}
+	\begin{definition}
+		To indicate that the set $A \subset \mathbb{R}$ has no upper bound, we say:
+		\begin{center}
+		$\sup{} A = +\infty$\\
+		\end{center}
+		Symetrically when we have no lower bound, we say:
+		\begin{center}
+		$\inf A = -\infty$
+		\end{center}
+	\end{definition}
+	
+	
+	
+		
 	\section{Integral Stieltjes-Lebesgue}
 	\subsection{Antes: Integral de Riemann-Stieltjes}
 	\begin{flushleft}
@@ -153,4 +211,12 @@
 	\subsection{Teoria de medida (para comprender la integral de Lebesgue)}
 	Una medida de un conjunto es la forma rigurosa de asignar un numero a cada
 	subconjunto apropiado de un conjunto.
+
 \end{document}
+
+\begin{thebibliography}{9}
+	\printbibliography
+\bibitem{texbook}
+Donald E. Knuth (1986) \emph{The \TeX{} Book}, Addison-Wesley Professional.
+\end{thebibliography}
+
