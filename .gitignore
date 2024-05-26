@@ -1,6 +1,5 @@
 *.aux
 *.dvi
-*.pdf
 *.fdb_latexmk
 *.idx
 *.fls
